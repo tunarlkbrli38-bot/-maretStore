@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <title>İmarətStore</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f8f8f8; margin: 0; padding: 20px; }
+        .header { text-align: center; margin-bottom: 30px; }
+        .site-title { font-size: 40px; font-weight: bold; color: #000; margin: 10px 0; text-transform: uppercase; letter-spacing: 2px; }
+        .search-box { display: block; width: 100%; max-width: 500px; margin: 20px auto; padding: 15px; border: 2px solid #e67e22; border-radius: 10px; font-size: 16px; }
+        .product-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+        .product-card { background: white; width: 250px; padding: 15px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; transition: transform 0.2s; }
+        .product-card:hover { transform: translateY(-5px); }
+        .product-card img { width: 100%; border-radius: 8px; height: 200px; object-fit: cover; }
+        .product-name { font-weight: bold; margin: 10px 0; height: 40px; overflow: hidden; }
+        .product-price { color: #e67e22; font-size: 20px; font-weight: bold; margin: 10px 0; }
+        .buy-btn { display: block; background: #e67e22; color: white; padding: 12px; text-decoration: none; border-radius: 5px; font-weight: bold; }
+        .footer { text-align: center; margin-top: 50px; color: #555; font-size: 14px; padding: 20px; border-top: 2px solid #e67e22; background: #fff; line-height: 1.6; }
+        .disclaimer { font-size: 12px; color: #777; margin-top: 10px; font-style: italic; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="site-title">İmarətStore</div>
+    </div>
+
+    <input type="text" id="searchInput" class="search-box" placeholder="Məhsul axtar..." onkeyup="filterProducts()">
+
+    <div class="product-grid" id="productGrid">
+        <div class="product-card" data-name="Professional Futbol Ayaqqabıları"><img src="https://img.kwcdn.com/product/open/0e2267e111b74315b91e952bf67329e9-goods.jpeg" alt="Futbol Ayaqqabıları"><div class="product-name">Professional Futbol Ayaqqabıları</div><div class="product-price">19.16 ₼</div><a href="https://share.temu.com/IsSsILmpHNB" target="_blank" class="buy-btn">Sifariş et</a></div>
+        <div class="product-card" data-name="Galatasaray Futbol Forması"><img src="https://img.kwcdn.com/product/fancy/49847a16-bb08-4df5-9d98-19dfcf5c1b0b.jpg" alt="Galatasaray Forması"><div class="product-name">Galatasaray Futbol Forması</div><div class="product-price">28.63 ₼</div><a href="https://share.temu.com/9EbDztiVmKB" target="_blank" class="buy-btn">Sifariş et</a></div>
+        <div class="product-card" data-name="İtaliya Futbol Forması"><img src="https://img.kwcdn.com/product/fancy/45c23160-6437-4b75-9894-e40e8d0d7198.jpg" alt="İtaliya Forması"><div class="product-name">İtaliya Futbol Forması</div><div class="product-price">13.27 ₼</div><a href="https://share.temu.com/Hx71dPKDYgB" target="_blank" class="buy-btn">Sifariş et</a></div>
+        <div class="product-card" data-name="Professional Futbol Topu"><img src="https://img.kwcdn.com/product/fancy/2d0333b0-2a1f-4e51-80e9-e5a24c51b775.jpg" alt="Futbol Topu"><div class="product-name">Professional Futbol Topu</div><div class="product-price">16.23 ₼</div><a href="https://share.temu.com/dD5EEFKMsbB" target="_blank" class="buy-btn">Sifariş et</a></div>
+        <div class="product-card" data-name="Training Futbol Topu"><img src="https://img.kwcdn.com/product/open/2024-05-06/1715021730212-0f371206556c4c9387dc842616fed564-goods.jpeg" alt="Futbol Topu"><div class="product-name">Training Futbol Topu</div><div class="product-price">16.03 ₼</div><a href="https://share.temu.com/znAGfF4ezFB" target="_blank" class="buy-btn">Sifariş et</a></div>
+        <div class="product-card" data-name="Futbol Forması"><img src="https://img.kwcdn.com/product/open/7754403b5ee148298a8fb8fe185a1ed4-goods.jpeg" alt="Futbol Forması"><div class="product-name">Futbol Forması</div><div class="product-price">13.19 ₼</div><a href="https://share.temu.com/3qYobzV2EpB" target="_blank" class="buy-btn">Sifariş et</a></div>
+        <div class="product-card" data-name="Barcelona Futbol Forması"><img src="https://img.kwcdn.com/product/fancy/7fedaa9a-1960-4172-bd8c-c67e704b49cf.jpg" alt="Barcelona Forması"><div class="product-name">Barcelona Futbol Forması</div><div class="product-price">16.43 ₼</div><a href="https://share.temu.com/4cpOEkYlHqB" target="_blank" class="buy-btn">Sifariş et</a></div>
+        <div class="product-card" data-name="Real Madrid Futbol Forması"><img src="https://img.kwcdn.com/product/fmket/70abb12836aa00767f7169d967565ca2.jpg" alt="Real Madrid Forması"><div class="product-name">Real Madrid Futbol Forması</div><div class="product-price">14.94 ₼</div><a href="https://share.temu.com/ozTVNxMY6rB" target="_blank" class="buy-btn">Sifariş et</a></div>
+        <div class="product-card" data-name=>Futbol Forması"><img src="https://img.kwcdn.com/product/fmket/44c51e33e0dca385d22da95d06c0131d.jpg" alt="Futbol Forması"><div class="product-name">Yeni Futbol Forması</div><div class="product-price">15.74 ₼</div><a href="https://share.temu.com/uO9D1Sd9CLB" target="_blank" class="buy-btn">Sifariş et</a></div>
+    </div>
+
+    <div class="footer">
+        &copy; İmarətStore Ⓡ
+        <div class="disclaimer">
+            Qeyd: Canlı qiymətləri izləyə bilmədiyimiz üçün məhsul qiymətlərində fərq ola bilər. Bunun üçün çox üzr istəyirik.
+        </div>
+    </div>
+
+    <script>
+        function filterProducts() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.getElementsByClassName('product-card');
+            for (let i = 0; i < cards.length; i++) {
+                let name = cards[i].getAttribute('data-name').toLowerCase();
+                cards[i].style.display = name.includes(input) ? "" : "none";
+            }
+        }
+    </script>
+</body>
+</html>
